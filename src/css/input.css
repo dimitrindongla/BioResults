@@ -1,18 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  
+    --color-navy: #0B1F3A;
+    --color-medical: #1666B0;
+    --color-skysoft: #DCEEFF;
+    --color-paper: #F7FBFF;
 }
 
 theme: {}
 
 @layer base {
-    body {};
+    body {}
 
-    /* colors */
-
- /* navy: '#0B1F3A', medical: '#1666B0', skysoft: '#DCEEFF', paper: '#F7FBFF' */
-        
 }
 
 @layer components {
