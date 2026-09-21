@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+  
+}
+
+theme: {}
+
+@layer base {
+    body {};
+
+    /* colors */
+
+ /* navy: '#0B1F3A', medical: '#1666B0', skysoft: '#DCEEFF', paper: '#F7FBFF' */
+        
+}
+
+@layer components {
+    .btn {
+        @apply px-4 py-2 rounded-lg bg-navy text-white font-semibold hover:bg-medical transition-colors duration-300;
+    }
+}
+
+@layer utilities {
+    .text-shadow {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+}

@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./src/css/output.css" rel="stylesheet">
+    <title>BioResults</title>
+
+    <script src="./src/JS/script.js" defer></script>
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: { navy: '#0B1F3A', medical: '#1666B0', skysoft: '#DCEEFF', paper: '#F7FBFF' } } }
+        }
+    </script>
+</head>
+
+<body class="min-h-screen w-screen overflow-x-hidden bg-paper font-sans text-slate-800">
+    <main class="min-h-screen w-screen">
+        <section id="home-view"
+            class="min-h-screen w-screen bg-gradient-to-br from-navy via-[#113763] to-medical text-white">
+            <header class="mx-auto flex w-[92%] items-center justify-between py-6 lg:w-[80%]">
+                <div class="flex items-center gap-3"><span
+                        class="grid h-10 w-10 place-items-center rounded-xl bg-skysoft text-xl text-medical">✚</span>
+                    <div>
+                        <p class="text-lg font-bold">BioRésultats</p>
+                        <p class="text-xs text-sky-200">Portail d'analyses biologiques</p>
+                    </div>
+                </div><span class="rounded-full border border-sky-300/30 px-4 py-2 text-xs text-sky-100">Prototype
+                    sécurisé</span>
+            </header>
+            <div class="mx-auto flex min-h-[75vh] w-[92%] flex-col justify-center lg:w-[80%]">
+                <p class="mb-4 text-sm font-semibold uppercase tracking-[.2em] text-sky-200">Gestion des résultats
+                    biologiques
+                </p>
+                <h1 class="max-w-[90%] text-4xl font-bold leading-tight sm:text-5xl lg:max-w-[70%] lg:text-6xl">Des
+                    résultats
+                    clairs, pour les professionnels et leurs patients.</h1>
+                <p class="mt-6 max-w-[90%] text-base leading-7 text-sky-100 sm:text-lg lg:max-w-[55%]">Gérez les
+                    dossiers,
+                    publiez les analyses et donnez à chaque patient un accès personnel en lecture seule.</p>
+                <div class="mt-10 flex w-full flex-col gap-4 sm:w-[80%] sm:flex-row lg:w-[55%]"><button
+                        data-view="professional"
+                        class="w-full rounded-2xl bg-white px-6 py-5 text-left text-navy sm:w-[50%]"><span
+                            class="text-2xl">▦</span><strong class="mt-2 block">Portail professionnel</strong><span
+                            class="mt-1 block text-sm text-slate-500">Gérer les dossiers et
+                            résultats</span></button><button data-view="patient-login"
+                        class="w-full rounded-2xl border border-sky-200/40 bg-white/10 px-6 py-5 text-left sm:w-[50%]"><span
+                            class="text-2xl">◉</span><strong class="mt-2 block">Espace patient</strong><span
+                            class="mt-1 block text-sm text-sky-100">Consulter mes résultats</span></button></div>
+            </div>
+        </section>
+        <section id="professional-view" class="hidden min-h-screen w-screen bg-paper">
+            <header class="bg-navy text-white">
+                <div class="mx-auto flex w-[92%] items-center justify-between py-4 lg:w-[80%]">
+                    <div>
+                        <p class="text-lg font-bold">BioRésultats</p>
+                        <p class="text-xs text-sky-200">Portail professionnel</p>
+                    </div><button data-view="home" class="text-sm text-sky-100">Quitter</button>
+                </div>
+            </header>
+            <div class="mx-auto flex w-[92%] flex-col gap-5 py-6 lg:w-[80%] lg:flex-row">
+                <aside class="w-full rounded-2xl bg-navy p-4 text-white lg:w-[31%]">
+                    <div class="mb-4 flex items-center justify-between">
+                        <div>
+                            <p class="font-semibold">Patients</p>
+                            <p id="patient-count" class="text-xs text-sky-200"></p>
+                        </div><button id="add-patient"
+                            class="rounded-lg bg-skysoft px-3 py-2 text-sm font-bold text-navy">+
+                            Ajouter</button>
+                    </div><input id="patient-search" placeholder="Rechercher un patient"
+                        class="mb-3 w-full rounded-lg bg-white/10 px-3 py-2 text-sm text-white placeholder:text-sky-200">
+                    <div id="patient-list" class="space-y-2"></div>
+                </aside>
+                <section id="patient-detail" class="w-full lg:w-[67%]"></section>
+            </div>
+        </section>
+        <section id="patient-login-view" class="hidden min-h-screen w-screen bg-gradient-to-br from-skysoft to-paper">
+            <header class="mx-auto flex w-[92%] items-center justify-between py-6 text-navy lg:w-[80%]">
+                <div>
+                    <p class="text-lg font-bold">BioRésultats</p>
+                    <p class="text-xs text-medical">Portail d'analyses biologiques</p>
+                </div><button data-view="home" class="text-sm font-semibold text-medical">Retour à l'accueil</button>
+            </header>
+            <div class="mx-auto flex w-[92%] justify-center py-12 lg:w-[80%]">
+                <div class="w-full rounded-3xl bg-white p-7 shadow-lg sm:w-[80%] lg:w-[45%]"><span
+                        class="grid h-12 w-12 place-items-center rounded-xl bg-skysoft text-xl text-medical">◉</span>
+                    <h1 class="mt-5 text-3xl font-bold text-navy">Mon espace patient</h1>
+                    <p class="mt-2 text-sm text-slate-500">Entrez votre identifiant unique pour accéder à vos résultats
+                        publiés.
+                    </p><label class="mt-7 block text-sm font-semibold" for="patient-code">Identifiant
+                        patient</label><input id="patient-code" placeholder="Ex. PAT-8F3K2X"
+                        class="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 uppercase">
+                    <p id="login-error" class="mt-2 hidden text-sm text-red-600"></p><button id="patient-access"
+                        class="mt-5 w-full rounded-xl bg-medical py-3 font-bold text-white">Accéder à mes
+                        résultats</button>
+                    <div class="mt-6 rounded-xl bg-skysoft p-4 text-sm">Démo : <button id="demo-code"
+                            class="font-bold text-medical underline">PAT-8F3K2X</button></div>
+                </div>
+            </div>
+        </section>
+        <section id="patient-record-view" class="hidden min-h-screen w-screen bg-paper">
+            <header class="bg-navy text-white">
+                <div class="mx-auto flex w-[92%] items-center justify-between py-4 lg:w-[80%]">
+                    <div>
+                        <p class="text-lg font-bold">BioRésultats</p>
+                        <p class="text-xs text-sky-200">Mon espace patient</p>
+                    </div><button data-view="patient-login" class="text-sm text-sky-100">Déconnexion</button>
+                </div>
+            </header>
+            <div class="mx-auto w-[92%] py-7 lg:w-[70%]">
+                <div class="rounded-2xl border border-blue-100 bg-white p-5 shadow-sm sm:p-7">
+                    <p class="text-xs font-bold uppercase tracking-widest text-medical">Mes résultats publiés</p>
+                    <div class="mt-2 flex justify-between gap-2">
+                        <div>
+                            <h1 id="record-title" class="text-3xl font-bold text-navy"></h1>
+                            <p id="record-id" class="mt-1 text-sm text-slate-500"></p>
+                        </div><span
+                            class="h-fit rounded-full bg-skysoft px-3 py-1 text-xs font-bold text-medical">Lecture
+                            seule</span>
+                    </div>
+                    <div id="patient-results" class="mt-7"></div>
+                    <p class="mt-6 rounded-xl bg-amber-50 p-4 text-xs text-amber-800">Les valeurs de référence sont
+                        indicatives.
+                        Seul un professionnel de santé peut interpréter ces résultats.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div id="modal-root"></div>
+    <script src="app.js"></script>
+</body>
+
+</html>
