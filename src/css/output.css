@@ -25,8 +25,6 @@
     --color-slate-200: oklch(92.9% 0.013 255.508);
     --color-slate-300: oklch(86.9% 0.022 252.894);
     --color-slate-500: oklch(55.4% 0.046 257.417);
-    --color-slate-600: oklch(44.6% 0.043 257.281);
-    --color-slate-700: oklch(37.2% 0.044 257.287);
     --color-slate-800: oklch(27.9% 0.041 260.031);
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -52,7 +50,6 @@
     --text-6xl--line-height: 1;
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
-    --tracking-tight: -0.025em;
     --tracking-widest: 0.1em;
     --leading-tight: 1.25;
     --radius-lg: 0.5rem;
@@ -274,6 +271,9 @@
   }
   .h-fit {
     height: fit-content;
+  }
+  .h-full {
+    height: 100%;
   }
   .max-h-\[90vh\] {
     max-height: 90vh;
@@ -657,6 +657,17 @@
       }
     }
   }
+  @media (width < 64rem) {
+    .max-lg\:w-full {
+      width: 100%;
+    }
+    .max-lg\:flex-col {
+      flex-direction: column;
+    }
+    .max-lg\:py-10 {
+      padding-block: calc(var(--spacing) * 10);
+    }
+  }
   @media (width >= 40rem) {
     .sm\:w-\[50\%\] {
       width: 50%;
@@ -683,6 +694,9 @@
     }
   }
   @media (width >= 64rem) {
+    .lg\:h-150 {
+      height: calc(var(--spacing) * 150);
+    }
     .lg\:w-\[31\%\] {
       width: 31%;
     }
@@ -691,6 +705,9 @@
     }
     .lg\:w-\[45\%\] {
       width: 45%;
+    }
+    .lg\:w-\[50\%\] {
+      width: 50%;
     }
     .lg\:w-\[55\%\] {
       width: 55%;
@@ -707,9 +724,6 @@
     .lg\:max-w-\[55\%\] {
       max-width: 55%;
     }
-    .lg\:max-w-\[70\%\] {
-      max-width: 70%;
-    }
     .lg\:flex-row {
       flex-direction: row;
     }
@@ -720,32 +734,8 @@
   }
 }
 @layer base;
-@layer components {
-  .btn {
-    border-radius: var(--radius-lg);
-    background-color: var(--color-navy);
-    padding-inline: calc(var(--spacing) * 4);
-    padding-block: calc(var(--spacing) * 2);
-    --tw-font-weight: var(--font-weight-semibold);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-white);
-    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
-    transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-    transition-duration: var(--tw-duration, var(--default-transition-duration));
-    --tw-duration: 300ms;
-    transition-duration: 300ms;
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--color-medical);
-      }
-    }
-  }
-}
-@layer utilities {
-  .text-shadow {
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  }
-}
+@layer components;
+@layer utilities;
 @property --tw-space-y-reverse {
   syntax: "*";
   inherits: false;
@@ -875,10 +865,6 @@
   inherits: false;
   initial-value: 0 0 #0000;
 }
-@property --tw-duration {
-  syntax: "*";
-  inherits: false;
-}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
@@ -910,7 +896,6 @@
       --tw-ring-offset-width: 0px;
       --tw-ring-offset-color: #fff;
       --tw-ring-offset-shadow: 0 0 #0000;
-      --tw-duration: initial;
     }
   }
 }
