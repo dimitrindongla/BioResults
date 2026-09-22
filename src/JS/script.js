@@ -1,14 +1,13 @@
-// ============================================================
-// CONFIGURATION & DONNÉES INITIALES
-// ============================================================
+// ********************** CONFIGURATION & DONNÉES INITIALES ********************************
 
 const STORAGE_KEY = 'bioresulats-demo-v1';
 
 const seedPatients = [
+
     {
         id: 'PAT-8F3K2X',
-        firstName: 'Jean',
-        lastName: 'Dupont',
+        firstName: 'Jores',
+        lastName: 'Tagni',
         birthDate: '1985-04-12',
         results: [
             { id: 1, name: 'Glycémie', value: 1.2, unit: 'g/L', min: 0.7, max: 1.1, date: '2026-09-18', published: true },
@@ -16,6 +15,7 @@ const seedPatients = [
             { id: 3, name: 'Hémoglobine', value: 14.2, unit: 'g/dL', min: 13, max: 17, date: '2026-09-18', published: false },
         ],
     },
+
     {
         id: 'PAT-2J9R7M',
         firstName: 'Amina',
@@ -25,6 +25,7 @@ const seedPatients = [
             { id: 4, name: 'Glycémie', value: 0.92, unit: 'g/L', min: 0.7, max: 1.1, date: '2026-09-17', published: true },
         ],
     },
+    
     {
         id: 'PAT-4D1L8Q',
         firstName: 'Paul',
@@ -398,6 +399,7 @@ $('#patient-code').addEventListener('keydown', (event) => {
 // ============================================================
 
 document.addEventListener('submit', (event) => {
+
     // Création d'un nouveau patient
     if (event.target.id === 'patient-form') {
         event.preventDefault();

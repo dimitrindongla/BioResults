@@ -7,21 +7,15 @@
     --color-paper: #F7FBFF;
 }
 
-theme: {}
-
 @layer base {
     body {}
 
 }
 
 @layer components {
-    .btn {
-        @apply px-4 py-2 rounded-lg bg-navy text-white font-semibold hover:bg-medical transition-colors duration-300;
-    }
+
 }
 
 @layer utilities {
-    .text-shadow {
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    }
+
 }
